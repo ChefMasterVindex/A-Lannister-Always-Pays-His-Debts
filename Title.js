@@ -1,72 +1,67 @@
 /*
 A struct that will contain 3 components:
-String[] currentTitle
-String[] originalTitle
+String currentTitle
+String originalTitle
+String firstWord
 
 Init:
-(String[] originalTitleParameter, int shiftNumber)
+(String originalTitleParameter, int shiftNumber)
 
 APIs
 String getFirstWord()
-String[] getCurrentTitle()
-String[] getOriginalTitle()
+String getCurrentTitle()
+String getOriginalTitle()
 bool equalCurrentTitle(Title)
 bool equalOriginalTitle(Title)
+int compareTo(Title)
 */
 
 var Title = function(originalTitleParameter, shiftNumber) {
 	var self = this;
 	var originalTitle = originalTitleParameter;
 	var currentTitle = shiftOriginalTitle();
+	var firstWord;
 	
 	this.getFirstWord = function() {
-		return currentTitle[0];
+		return firstWord;
 	}
 	
 	this.getCurrentTitle = function() {
-		return currentTitle.slice(0);
+		return currentTitle;
 	}
 	
 	this.getOriginalTitle = function() {
-		return originalTitle.slice(0);
+		return originalTitle;
 	}
 	
 	
 	this.equalCurrentTitle = function(otherTitle) {
-		var i;
-		if (self.currentTitle.length==othertTitle.currentTitle.length) {
-			for (i=0; i<self.currentTitle.length; i++) {
-				if (self.currentTitle[i]!=otherTitle.currentTitle[i]) {
-					return false;
-				}
-			}
-			return true;
-		} else {
-			return false;
-		}
+		return (self.getCurrentTitle()==otherTitle.getCurrentTitle());
 	}
 	
-	this.equalOriginaltTitle = function(otherTitle) {
-		var i;
-		if (self.originalTitle.length==otherTitle.originalTitle.length) {
-			for (i=0; i<self.originalTitle.length; i++) {
-				if (self.originalTitle[i]!=otherTitle.originalTitle[i]) {
-					return false;
-				}
-			}
-			return true;
+	this.equalOriginalTitle = function(otherTitle) {
+		return (self.getOriginalTitle()==otherTitle.getOriginalTitle());
+	}
+	
+	this.compareTo = function(otherTitle) {
+		if (self.getCurrentTitle()==otherTitle.getCurrentTitle()) {
+			return 0;
+		} else if (self.getCurrentTitle()>otherTitle.getCurrentTitle()) {
+			return 1;
 		} else {
-			return false;
+			return -1;
 		}
 	}
 	
 	
 	function shiftOriginalTitle() {
+		var oldTitle = originalTitle.split(" ");
 		var newTitle = new Array();
 		var i;
 		for (i=0; i<originalTitle.length; i++) {
 			newTitle[(i+shiftNumber)%originalTitle.length()] = originalTitle[i];
 		}
-		return newTitle;
+		self.firstWord = newTitle[0];
+		return newTitle.join(" ");
 	}
 }
