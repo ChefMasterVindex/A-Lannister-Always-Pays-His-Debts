@@ -1,7 +1,6 @@
 /*
 A struct that will contain 3 components:
 String[] currentTitle
-bool isIgnored
 String[] originalTitle
 
 Init:
@@ -11,15 +10,14 @@ APIs
 String getFirstWord()
 String[] getCurrentTitle()
 String[] getOriginalTitle()
-void ignore()
-void include()
+bool equalCurrentTitle(Title)
+bool equalOriginalTitle(Title)
 */
 
 var Title = function(originalTitleParameter, shiftNumber) {
 	var self = this;
 	var originalTitle = originalTitleParameter;
 	var currentTitle = shiftOriginalTitle();
-	var isIgnored = false;
 	
 	this.getFirstWord = function() {
 		return currentTitle[0];
@@ -33,13 +31,35 @@ var Title = function(originalTitleParameter, shiftNumber) {
 		return originalTitle.slice(0);
 	}
 	
-	this.ignore = () {
-		isIgnored = true;
+	
+	this.equalCurrentTitle = function(otherTitle) {
+		var i;
+		if (self.currentTitle.length==othertTitle.currentTitle.length) {
+			for (i=0; i<self.currentTitle.length; i++) {
+				if (self.currentTitle[i]!=otherTitle.currentTitle[i]) {
+					return false;
+				}
+			}
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
-	this.include = () {
-		isIgnored = false;
+	this.equalOriginaltTitle = function(otherTitle) {
+		var i;
+		if (self.originalTitle.length==otherTitle.originalTitle.length) {
+			for (i=0; i<self.originalTitle.length; i++) {
+				if (self.originalTitle[i]!=otherTitle.originalTitle[i]) {
+					return false;
+				}
+			}
+			return true;
+		} else {
+			return false;
+		}
 	}
+	
 	
 	function shiftOriginalTitle() {
 		var newTitle = new Array();
