@@ -18,7 +18,7 @@ int compareTo(Title)
 */
 
 var Title = function(originalTitle, shiftNumber) {
-	var self = this;
+	var self_ = this;
 	var originalTitle_ = originalTitle;
 	var currentTitle_ = shiftOriginalTitle();
 	var firstWord_;
@@ -38,17 +38,17 @@ var Title = function(originalTitle, shiftNumber) {
 	
 	
 	this.equalCurrentTitle = function(otherTitle) {
-		return (self.getCurrentTitle()==otherTitle.getCurrentTitle());
+		return (self_.getCurrentTitle()==otherTitle.getCurrentTitle());
 	}
 	
 	this.equalOriginalTitle = function(otherTitle) {
-		return (self.getOriginalTitle()==otherTitle.getOriginalTitle());
+		return (self_.getOriginalTitle()==otherTitle.getOriginalTitle());
 	}
 	
 	this.compareTo = function(otherTitle) {
-		if (self.getCurrentTitle()==otherTitle.getCurrentTitle()) {
+		if (self_.getCurrentTitle()==otherTitle.getCurrentTitle()) {
 			return 0;
-		} else if (self.getCurrentTitle()>otherTitle.getCurrentTitle()) {
+		} else if (self_.getCurrentTitle()>otherTitle.getCurrentTitle()) {
 			return 1;
 		} else {
 			return -1;
@@ -63,7 +63,7 @@ var Title = function(originalTitle, shiftNumber) {
 		for (i=0; i<originalTitle_.length; i++) {
 			newTitle[(i+shiftNumber)%originalTitle_.length()] = originalTitle_[i];
 		}
-		self.firstWord_ = newTitle[0];
+		self_.firstWord_ = newTitle[0];
 		return newTitle.join(" ");
 	}
 }
