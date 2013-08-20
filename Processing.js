@@ -1,12 +1,12 @@
 /*This component is the main processing unit
 Class variables:
-	ListOfTitles listOfTitles
-	ListOfWordsToIgnore listOfWordsToIgnore
+	ListOfTitles listOfTitles_
+	ListOfWordsToIgnore listOfWordsToIgnore_
 Public Methods (APIs):
-	void processNewTitles(ListOfTitles listOfNewTitles)
-	void processNewWordsToIgnore(ListOfWordsToIgnore listOfNewWordsToIgnore)
-	void processTitleRemoval(ListOfTitles listOfRemovedTitles)
-	void processWordsToIgnoreRemoval(ListOfWordsToIgnore listOfRemovedWordsToIgnore)
+	void processNewTitles(Title[] listOfNewTitles)
+	void processNewWordsToIgnore(String[] listOfNewWordsToIgnore)
+	void processTitleRemoval(Title[] listOfRemovedTitles)
+	void processWordsToIgnoreRemoval(String[] listOfRemovedWordsToIgnore)
 */
 
 var Processing = function(){
