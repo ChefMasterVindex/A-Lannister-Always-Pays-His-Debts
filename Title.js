@@ -60,10 +60,11 @@ var Title = function(originalTitle, shiftNumber) {
 		var oldTitle = originalTitle_.split(" ");
 		var newTitle = new Array();
 		var i;
-		for (i=0; i<originalTitle_.length; i++) {
-			newTitle[(i+shiftNumber)%originalTitle_.length] = originalTitle_[i];
+		for (i=0; i<oldTitle.length; i++) {
+			newTitle[(i+shiftNumber)%oldTitle.length] = oldTitle[i];
 		}
 		self_.firstWord_ = newTitle[0];
 		return newTitle.join(" ");
 	}
+	
 }
