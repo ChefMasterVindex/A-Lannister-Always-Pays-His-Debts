@@ -1,8 +1,9 @@
 /*
 A struct that will contain 3 components:
-String currentTitle
-String originalTitle
-String firstWord
+String currentTitle_
+String originalTitle_
+String firstWord_
+int shiftNumber_
 
 Init:
 (String originalTitleParameter, int shiftNumber)
@@ -16,22 +17,23 @@ bool equalOriginalTitle(Title)
 int compareTo(Title)
 */
 
-var Title = function(originalTitleParameter, shiftNumber) {
+var Title = function(originalTitle, shiftNumber) {
 	var self = this;
-	var originalTitle = originalTitleParameter;
-	var currentTitle = shiftOriginalTitle();
-	var firstWord;
+	var originalTitle_ = originalTitle;
+	var currentTitle_ = shiftOriginalTitle();
+	var firstWord_;
+	var shiftNumber_ = shiftNumber;
 	
 	this.getFirstWord = function() {
-		return firstWord;
+		return firstWord_;
 	}
 	
 	this.getCurrentTitle = function() {
-		return currentTitle;
+		return currentTitle_;
 	}
 	
 	this.getOriginalTitle = function() {
-		return originalTitle;
+		return originalTitle_;
 	}
 	
 	
@@ -55,11 +57,11 @@ var Title = function(originalTitleParameter, shiftNumber) {
 	
 	
 	function shiftOriginalTitle() {
-		var oldTitle = originalTitle.split(" ");
+		var oldTitle = originalTitle_.split(" ");
 		var newTitle = new Array();
 		var i;
-		for (i=0; i<originalTitle.length; i++) {
-			newTitle[(i+shiftNumber)%originalTitle.length()] = originalTitle[i];
+		for (i=0; i<originalTitle_.length; i++) {
+			newTitle[(i+shiftNumber)%originalTitle_.length()] = originalTitle_[i];
 		}
 		self.firstWord = newTitle[0];
 		return newTitle.join(" ");
