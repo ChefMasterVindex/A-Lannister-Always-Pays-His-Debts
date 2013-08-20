@@ -1,8 +1,6 @@
-
-
 var ListOfTitles = function(){
-	var self = this;
-	var titleListObj = {};
+	var self_ = this;
+	var titleListObj_ = {};
 
 	this.addTitles = function(titleObjArr){
 		if(Object.prototype.toString.call(titleObjArr) == "[object Array]") return;
@@ -13,7 +11,7 @@ var ListOfTitles = function(){
 			var titleObj = titleObjArr[i]
 			var currTitle = titleObj.getCurrentTitle();
 
-			titleListObj[currTitle] = titleObj;
+			titleListObj_[currTitle] = titleObj;
 		}
 	}
 
@@ -26,7 +24,7 @@ var ListOfTitles = function(){
 			var titleObj = titleObjArr[i]
 			var currTitle = titleObj.getCurrentTitle();
 
-			delete titleListObj[currTitle];
+			delete titleListObj_[currTitle];
 		}
 	}
 
@@ -36,13 +34,12 @@ var ListOfTitles = function(){
 		var removedTitleList = [];
 		var key;
 
-		for(key in titleListObj){
-			var keyArr = key.split(" ");
-			var keyFirstWord = keyArr[0];
+		for(key in titleListObj_){
+			var titleFirstWord = titleListObj_[key].getFirstWord();
 
-			if(keyFirstWord == firstWord){
-				removedTitleList.push(titleListObj[key]);
-				delete titleListObj[key];
+			if(titleFirstWord == firstWord){
+				removedTitleList.push(titleListObj_[key]);
+				delete titleListObj_[key];
 			}
 		}
 
@@ -51,6 +48,6 @@ var ListOfTitles = function(){
 	}
 
 	this.getTitleList = function(){
-		return Object.keys(titleListObj).sort();
+		return Object.keys(titleListObj_).sort();
 	}
 }
