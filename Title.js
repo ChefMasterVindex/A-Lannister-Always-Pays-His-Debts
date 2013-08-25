@@ -19,7 +19,7 @@ int compareTo(Title)
 
 var Title = function(originalTitle, shiftNumber) {
 	var self_ = this;
-	var originalTitle_ = originalTitle;
+	var originalTitle_ = originalTitle.trim();
 	var currentTitle_ = shiftOriginalTitle();
 	var firstWord_;
 	var shiftNumber_ = shiftNumber;
