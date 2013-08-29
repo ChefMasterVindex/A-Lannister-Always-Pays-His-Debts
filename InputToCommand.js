@@ -10,14 +10,33 @@ void removeTitles()
 var InputToCommand = function() {
 	
 	var self_ = this;
-	var processing = new processing();
+	var processing = new Processing();
 	var addTitlesBox_;
 	var removeTitlesBox_;
 	var addWordsToIgnoreBox_;
 	var removeWordsToIgnoreBox_;
 
+	this.initBoxes = function(addTitlesBoxString, removeTitlesBoxString, addWordsToIgnoreBoxString, removeWordsToIgnoreBoxString) {
+		addTitlesBox_ = document.getElementById(addTitlesBoxString);
+		removeTitlesBox_ = document.getElementById(removeTitlesBoxString);
+		addWordsToIgnoreBox_ = document.getElementById(addWordsToIgnoreBoxString);
+		removeWordsToIgnoreBox_ = document.getElementById(removeWordsToIgnoreBoxString);
+	}
+	
+	
 	this.addTitles = function() {
 		var retrievedString = addTitlesBox_.value;
+		var titleArray = generateTitleArray(retrievedString);
+		processing.addTitles(titleArray);
+	}
+	
+	this.removeTitles = function() {
+		var retrievedString = addTitlesBox_.value;
+		var titleArray = generateTitleArray(retrievedString);
+		processing.removeTitles(titleArray);
+	}
+	
+	function generateTitleArray(retrievedString) {
 		var stringArray = retrievedString.split("\n");
 		var titleArray = new Array();
 		var i;
@@ -30,14 +49,7 @@ var InputToCommand = function() {
 				titleArray.push(new Title(stringArray[i], j));
 			}
 		}
-		processing.addTitles(titleArray);
-	}
-	
-	this.initBoxes = function(addTitlesBoxString, removeTitlesBoxString, addWordsToIgnoreBoxString, removeWordsToIgnoreBoxString) {
-		addTitlesBox_ = document.getElementById(addTitlesBoxString);
-		removeTitlesBox_ = document.getElementById(removeTitlesBoxString);
-		addWordsToIgnoreBox_ = document.getElementById(addWordsToIgnoreBoxString);
-		removeWordsToIgnoreBox_ = document.getElementById(removeWordsToIgnoreBoxString);
+		return titleArray;
 	}
 	
 }
