@@ -2,3 +2,7 @@
 APIs:
 void Output(ListOfTitles listOfTitles)
 */
+
+var Output = function(){
+	
+}

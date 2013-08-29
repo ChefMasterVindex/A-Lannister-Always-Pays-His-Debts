@@ -23,6 +23,7 @@ var InputToCommand = function() {
 		var j;
 		var numberOfWords;
 		for (i=0; i<stringArray.length; i++) {
+			stringArray[i] = stringArray[i].trim();
 			numberOfWords = stringArray[i].split(" ").length;
 			for (j=0; j<numberOfWords; i++) {
 				titleArray.add(new Title(stringArray[i], j));
