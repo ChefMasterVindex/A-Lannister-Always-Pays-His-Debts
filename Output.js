@@ -11,13 +11,24 @@ var Output = function(){
 	var self_ = this;
 
 	this.displayTitleOutput = function(titleArr){
-		var i;
+		var i, j;
 
 		document.getElementById(TITLE_OUTPUT_P_ID_).innerHTML = "";
 
 		for(i = 0; i < titleArr.length; i++){
+			currTitle = titleArr[i];
+			currTitleArr = currTitle.split(" ");
+			currTitleArr[0] = currTitleArr[0].toUpperCase();
+			currTitle = "";
+
+			for(j = 0; j < currTitleArr.length; j++){
+				currTitle += currTitleArr[i] + " ";
+			}
+
+			currTitle = currTitle.trim();
+
 			document.getElementById(TITLE_OUTPUT_P_ID_).innerHTML =
-				document.getElementById(TITLE_OUTPUT_P_ID_).innerHTML + titleArr[i] + "<br/>";
+				document.getElementById(TITLE_OUTPUT_P_ID_).innerHTML + currTitle + "<br/>";
 		}
 	}
 	this.displayWordsToIgnoreOutput = function(wordsToIgnoreArr){
