@@ -11,8 +11,11 @@
 	</head>
 	<body>
 		<div id="output-div">
+			<p>Title list:</p><br/>
 			<p id="output-title-p"></p>
+			<p>Words to ignore list:</p><br/>
 			<p id="output-words-to-ignore-p"></p>
+			<p>Error:</p><br/>
 			<p id="output-error-p"></p>
 		</div>
 		<div id="input-title-div">
@@ -35,6 +38,7 @@
 		</div>
 		<script>
 			var io = new InputToCommand();
+			io.initBoxes("titles-list-textarea","titles-list-textarea","words-to-ignore-textarea","words-to-ignore-textarea");
 		</script>
 	</body>
 </html>

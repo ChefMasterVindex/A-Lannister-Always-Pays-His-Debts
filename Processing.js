@@ -14,13 +14,13 @@ var Processing = function(){
 
 	var output_ = new Output();
 
-	var listofIncludedTitle_ = new ListOfTitles();
+	var listOfIncludedTitle_ = new ListOfTitles();
 	var listOfIgnoredTitle_ = new ListOfTitles();
 
 	var listOfWordsToIgnore_ = {}; 
 
 	this.addTitles = function(titleObjArr){
-		if(Object.prototype.toString.call(titleObjArr) == "[object Array]") return;
+		if(Object.prototype.toString.call(titleObjArr) != "[object Array]") return;
 
 		var key;
 
@@ -38,22 +38,22 @@ var Processing = function(){
 			}
 		}
 
-		listofIncludedTitle_.addTitles(titleObjArr);
+		listOfIncludedTitle_.addTitles(titleObjArr);
 
 		callOutput();
 	}
 
 	this.removeTitles = function(titleObjArr){
-		if(Object.prototype.toString.call(titleObjArr) == "[object Array]") return;
+		if(Object.prototype.toString.call(titleObjArr) != "[object Array]") return;
 
-		listofIncludedTitle_.removeTitles(titleObjArr);
+		listOfIncludedTitle_.removeTitles(titleObjArr);
 		listOfIgnoredTitle_.removeTitles(titleObjArr);
 
 		callOutput();
 	}
 
 	this.addWordsToIgnore = function(firstWordArr){
-		if(Object.prototype.toString.call(firstWordArr) == "[object Array]") return;
+		if(Object.prototype.toString.call(firstWordArr) != "[object Array]") return;
 
 		var i;
 
@@ -63,7 +63,7 @@ var Processing = function(){
 			if(listOfWordsToIgnore_[firstWord] == null){
 				listOfWordsToIgnore_[firstWord] = true;
 
-				var ignoredTitlesArr = listofIncludedTitle_.removeTitlesWithFirstWord(firstWord);
+				var ignoredTitlesArr = listOfIncludedTitle_.removeTitlesWithFirstWord(firstWord);
 				listOfIgnoredTitle_.addTitles(ignoredTitlesArr);
 			}
 		}
@@ -72,7 +72,7 @@ var Processing = function(){
 	}
 
 	this.removeWordsToIgnore = function(firstWordArr){
-		if(Object.prototype.toString.call(firstWordArr) == "[object Array]") return;
+		if(Object.prototype.toString.call(firstWordArr) != "[object Array]") return;
 
 		var i;
 
@@ -82,7 +82,7 @@ var Processing = function(){
 			if(listOfWordsToIgnore_[firstWord] != null){
 				delete listOfWordsToIgnore_[firstWord];
 
-				var includedTitlesArr = listofIgnoredTitle_.removeTitlesWithFirstWord(firstWord);
+				var includedTitlesArr = listOfIgnoredTitle_.removeTitlesWithFirstWord(firstWord);
 				listOfIncludedTitle_.addTitles(includedTitlesArr);
 			}
 		}

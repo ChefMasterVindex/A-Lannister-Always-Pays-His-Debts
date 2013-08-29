@@ -3,7 +3,7 @@ var ListOfTitles = function(){
 	var titleListObj_ = {};
 
 	this.addTitles = function(titleObjArr){
-		if(Object.prototype.toString.call(titleObjArr) == "[object Array]") return;
+		if(Object.prototype.toString.call(titleObjArr) != "[object Array]") return;
 
 		var i;
 
@@ -16,7 +16,7 @@ var ListOfTitles = function(){
 	}
 
 	this.removeTitles = function(titleObjArr){
-		if(Object.prototype.toString.call(titleObjArr) == "[object Array]") return;
+		if(Object.prototype.toString.call(titleObjArr) != "[object Array]") return;
 
 		var i;
 
