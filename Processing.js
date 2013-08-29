@@ -57,7 +57,7 @@ var Processing = function(){
 
 		var i;
 
-		for(i = 0; i < firstWordArr; i++){
+		for(i = 0; i < firstWordArr.length; i++){
 			var firstWord = firstWordArr[i];
 
 			if(listOfWordsToIgnore_[firstWord] == null){
@@ -76,7 +76,7 @@ var Processing = function(){
 
 		var i;
 
-		for(i = 0; i < firstWordArr; i++){
+		for(i = 0; i < firstWordArr.length; i++){
 			var firstWord = firstWordArr[i];
 
 			if(listOfWordsToIgnore_[firstWord] != null){
