@@ -25,25 +25,25 @@ var InputToCommand = function() {
 	
 	
 	this.addTitles = function() {
-		var retrievedString = addTitlesBox_.value;
+		var retrievedString = addTitlesBox_.value.toLowerCase();
 		var titleArray = generateTitleArray(retrievedString);
 		processing.addTitles(titleArray);
 	}
 	
 	this.removeTitles = function() {
-		var retrievedString = removeTitlesBox_.value;
+		var retrievedString = removeTitlesBox_.value.toLowerCase();
 		var titleArray = generateTitleArray(retrievedString);
 		processing.removeTitles(titleArray);
 	}
 	
 	this.addWordsToIgnore = function() {
-		var retrievedString = addWordsToIgnoreBox_.value;
+		var retrievedString = addWordsToIgnoreBox_.value.toLowerCase();
 		var stringArray = generateStringArray(retrievedString);
 		processing.addWordsToIgnore(stringArray);
 	}
 	
 	this.removeWordsToIgnore = function() {
-		var retrievedString = removeWordsToIgnoreBox_.value;
+		var retrievedString = removeWordsToIgnoreBox_.value.toLowerCase();
 		var stringArray = generateStringArray(retrievedString);
 		processing.removeWordsToIgnore(stringArray);
 	}
