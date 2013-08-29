@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="kwic.css">
+		<script src="Title.js"></script>
+		<script src="ListOfTitles.js"></script>
+		<script src="InputToCommand.js"></script>
+		<script src="Processing.js"></script>
+		<script src="Output.js"></script>
+		<title>KWIC-KWAC-KWOC</title>
+		<h1>KWIC</h1>
+	</head>
+	<body>
+		<div id="output-div">
+			<p id="output-title-p"></p>
+			<p id="output-words-to-ignore-p"></p>
+			<p id="output-error-p"></p>
+		</div>
+		<div id="input-title-div">
+			<p>Add/Remove title list<p>
+			<textarea id="titles-list-textarea"></textarea><br/>
+			<button type="button" onclick="io.addTitles()">Add</button>
+			<button type="button">Remove</button>
+		</div>
+		<div id="input-words-to-ignore-div">
+			<p>Add/Remove words to ignore</p>
+			<textarea id="words-to-ignore-textarea"></textarea><br/>
+			<button type="button">Add</button>
+			<button type="button">Remove</button>
+		</div>
+		<div id="credit-div">
+			<p>
+				Edrick Rudy Putra	A0088422A<br/>
+				Ivan Reinaldo		A0075113R<br/>
+			</p>
+		</div>
+		<script>
+			var io = new InputToCommand();
+		</script>
+	</body>
+</html>

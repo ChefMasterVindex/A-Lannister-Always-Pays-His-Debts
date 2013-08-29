@@ -10,6 +10,10 @@ Public Methods (APIs):
 */
 
 var Processing = function(){
+	var self_ = this;
+
+	var output_ = new Output();
+
 	var listofIncludedTitle_ = new ListOfTitles();
 	var listOfIgnoredTitle_ = new ListOfTitles();
 
@@ -45,7 +49,7 @@ var Processing = function(){
 		listofIncludedTitle_.removeTitles(titleObjArr);
 		listOfIgnoredTitle_.removeTitles(titleObjArr);
 
-		callOutput()
+		callOutput();
 	}
 
 	this.addWordsToIgnore = function(firstWordArr){
@@ -63,6 +67,8 @@ var Processing = function(){
 				listOfIgnoredTitle_.addTitles(ignoredTitlesArr);
 			}
 		}
+
+		callOutput();
 	}
 
 	this.removeWordsToIgnore = function(firstWordArr){
@@ -80,9 +86,16 @@ var Processing = function(){
 				listOfIncludedTitle_.addTitles(includedTitlesArr);
 			}
 		}
+
+		callOutput();
 	}
 
 	function callOutput(){
-		// var outputValues = listOfIncludedTitle_.getTitleList();
+		output_.displayTitleOutput(listOfIncludedTitle_.getTitleList());
+		output_.displayWordsToIgnoreOutput(Object.keys(listOfWordsToIgnore_).sort());
+	}
+
+	function throwError(errorStr){
+		output_.displayErrorOutput(errorStr);
 	}
 }
