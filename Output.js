@@ -13,6 +13,8 @@ var Output = function(){
 	this.displayTitleOutput = function(titleArr){
 		var i;
 
+		document.getElementById(TITLE_OUTPUT_P_ID_).innerHTML = "";
+
 		for(i = 0; i < titleArr.length; i++){
 			document.getElementById(TITLE_OUTPUT_P_ID_).innerHTML =
 				document.getElementById(TITLE_OUTPUT_P_ID_).innerHTML + titleArr[i] + "<br/>";
@@ -20,6 +22,8 @@ var Output = function(){
 	}
 	this.displayWordsToIgnoreOutput = function(wordsToIgnoreArr){
 		var i;
+
+		document.getElementById(WORDS_TO_IGNORE_OUTPUT_P_ID_).innerHTML = "";
 
 		for(i = 0; i < wordsToIgnoreArr.length; i++){
 			if(i != 0){
