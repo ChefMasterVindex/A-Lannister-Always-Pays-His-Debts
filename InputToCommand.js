@@ -1,23 +1,24 @@
 /*this class bridge between user input in HTML and  processing
 APIs:
-void addWordsToIgnore (String input)
-void removeWordsToIgnore (String input)
-void addTitles (String input)
-void removeTitles (String input)
+void initBoxes(String addTitlesBoxString, String removeTitlesBoxString, String addWordsToIgnoreBoxString, String removeWordsToIgnoreBoxString)
+void addWordsToIgnore()
+void removeWordsToIgnore()
+void addTitles()
+void removeTitles()
 */
 
 var InputToCommand = function() {
 	
 	var self_ = this;
 	var processing = new processing();
-	var addWordsToIgnoreBox_ = document.getElementById("ADD_WORDS_TO_IGNORE_BOX")
-	var removeWordsToIgnoreBox_ = document.getElementById("REMOVE_WORDS_TO_IGNORE_BOX")
-	var addTitlesBox_ = document.getElementById("ADD_TITLES_BOX")
-	var removeTitlesBox_ = document.getElementById("REMOVE_TITLES_BOX")
+	var addTitlesBox_;
+	var removeTitlesBox_;
+	var addWordsToIgnoreBox_;
+	var removeWordsToIgnoreBox_;
 
 	this.addTitles = function() {
-		var retrievedString = addTitlesBox.value;
-		var stringArray = retrieveString.split("\n");
+		var retrievedString = addTitlesBox_.value;
+		var stringArray = retrievedString.split("\n");
 		var titleArray = new Array();
 		var i;
 		var j;
@@ -25,11 +26,18 @@ var InputToCommand = function() {
 		for (i=0; i<stringArray.length; i++) {
 			stringArray[i] = stringArray[i].trim();
 			numberOfWords = stringArray[i].split(" ").length;
-			for (j=0; j<numberOfWords; i++) {
-				titleArray.add(new Title(stringArray[i], j));
+			for (j=0; j<numberOfWords; j++) {
+				titleArray.push(new Title(stringArray[i], j));
 			}
 		}
 		processing.addTitles(titleArray);
+	}
+	
+	this.initBoxes = function(addTitlesBoxString, removeTitlesBoxString, addWordsToIgnoreBoxString, removeWordsToIgnoreBoxString) {
+		addTitlesBox_ = document.getElementById(addTitlesBoxString);
+		removeTitlesBox_ = document.getElementById(removeTitlesBoxString);
+		addWordsToIgnoreBox_ = document.getElementById(addWordsToIgnoreBoxString);
+		removeWordsToIgnoreBox_ = document.getElementById(removeWordsToIgnoreBoxString);
 	}
 	
 }
