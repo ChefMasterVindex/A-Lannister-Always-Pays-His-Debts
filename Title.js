@@ -61,7 +61,7 @@ var Title = function(originalTitle, shiftNumber) {
 		var newTitle = new Array();
 		var i;
 		for (i=0; i<oldTitle.length; i++) {
-			newTitle[(i+shiftNumber)%oldTitle.length] = oldTitle[i];
+			newTitle[(i+shiftNumber)%oldTitle.length] = oldTitle[i].trim();
 		}
 		self_.firstWord_ = newTitle[0];
 		return newTitle.join(" ");

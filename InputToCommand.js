@@ -1,10 +1,10 @@
 /*this class bridge between user input in HTML and  processing
 APIs:
 void initBoxes(String addTitlesBoxString, String removeTitlesBoxString, String addWordsToIgnoreBoxString, String removeWordsToIgnoreBoxString)
-void addWordsToIgnore()
-void removeWordsToIgnore()
 void addTitles()
 void removeTitles()
+void addWordsToIgnore()
+void removeWordsToIgnore()
 */
 
 var InputToCommand = function() {
@@ -31,10 +31,23 @@ var InputToCommand = function() {
 	}
 	
 	this.removeTitles = function() {
-		var retrievedString = addTitlesBox_.value;
+		var retrievedString = removeTitlesBox_.value;
 		var titleArray = generateTitleArray(retrievedString);
 		processing.removeTitles(titleArray);
 	}
+	
+	this.addWordsToIgnore = function() {
+		var retrievedString = addWordsToIgnoreBox_.value;
+		var stringArray = generateStringArray(retrievedString);
+		processing.addWordsToIgnore(stringArray);
+	}
+	
+	this.removeWordsToIgnore = function() {
+		var retrievedString = removeWordsToIgnoreBox_.value;
+		var stringArray = generateStringArray(retrievedString);
+		processing.removeWordsToIgnore(stringArray);
+	}
+	
 	
 	function generateTitleArray(retrievedString) {
 		var stringArray = retrievedString.split("\n");
@@ -50,6 +63,15 @@ var InputToCommand = function() {
 			}
 		}
 		return titleArray;
+	}
+	
+	function generateStringArray(retrievedString) {
+		var stringArray = retrievedString.split(";");
+		var i;
+		for (i=0; i<stringArray.length; i++) {
+			stringArray[i].trim();
+		}
+		return stringArray;
 	}
 	
 }
