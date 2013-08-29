@@ -22,7 +22,7 @@ var Output = function(){
 			currTitle = "";
 
 			for(j = 0; j < currTitleArr.length; j++){
-				currTitle += currTitleArr[i] + " ";
+				currTitle += currTitleArr[j] + " ";
 			}
 
 			currTitle = currTitle.trim();
