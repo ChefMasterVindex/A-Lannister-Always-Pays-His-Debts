@@ -1,6 +1,7 @@
-/*This function convert list of titles to real output in HTML
+/*This function convert list of titles and list of words to ignore to real output in HTML
 APIs:
-void Output(ListOfTitles listOfTitles)
+void displayTitleOutput(titleArr)
+void displayWordsToIgnoreOutput(wordsToIgnoreArr)
 */
 
 var Output = function(){
