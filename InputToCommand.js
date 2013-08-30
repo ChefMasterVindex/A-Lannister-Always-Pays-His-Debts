@@ -1,4 +1,4 @@
-/*this class bridge between user input in HTML and  processing
+/*this class bridge between user input in HTML and  processing_
 APIs:
 void initBoxes(String addTitlesBoxString, String removeTitlesBoxString, String addWordsToIgnoreBoxString, String removeWordsToIgnoreBoxString)
 void addTitles()
@@ -8,9 +8,11 @@ void removeWordsToIgnore()
 */
 
 var InputToCommand = function() {
-	
+	var ALPHA_NUM_WHITESPACE_REGEX_ = /^([0-9a-z]|\s)+$/i;
+
 	var self_ = this;
-	var processing = new Processing();
+	var processing_ = new Processing();
+	var errorHandler_ = new ErrorHandler();
 	var addTitlesBox_;
 	var removeTitlesBox_;
 	var addWordsToIgnoreBox_;
@@ -26,28 +28,55 @@ var InputToCommand = function() {
 	
 	this.addTitles = function() {
 		var retrievedString = addTitlesBox_.value.toLowerCase();
+
+		errorHandler_.clearErrorDisplay();
+		if(!retrievedString.match(ALPHA_NUM_WHITESPACE_REGEX_)){
+			errorHandler_.displayError("Sorry, this application only receives alpha-numeric inputs.");
+			return;
+		}
+
 		var titleArray = generateTitleArray(retrievedString);
-		processing.addTitles(titleArray);
+		processing_.addTitles(titleArray);
 	}
 	
 	this.removeTitles = function() {
 		var retrievedString = removeTitlesBox_.value.toLowerCase();
+
+		errorHandler_.clearErrorDisplay();
+		if(!retrievedString.match(ALPHA_NUM_WHITESPACE_REGEX_)){
+			errorHandler_.displayError("Sorry, this application only receives alpha-numeric inputs.");
+			return;
+		}
+
 		var titleArray = generateTitleArray(retrievedString);
-		processing.removeTitles(titleArray);
+		processing_.removeTitles(titleArray);
 	}
 	
 	this.addWordsToIgnore = function() {
 		var retrievedString = addWordsToIgnoreBox_.value.toLowerCase();
+
+		errorHandler_.clearErrorDisplay();
+		if(!retrievedString.match(ALPHA_NUM_WHITESPACE_REGEX_)){
+			errorHandler_.displayError("Sorry, this application only receives alpha-numeric inputs.");
+			return;
+		}
+
 		var stringArray = generateStringArray(retrievedString);
-		processing.addWordsToIgnore(stringArray);
+		processing_.addWordsToIgnore(stringArray);
 	}
 	
 	this.removeWordsToIgnore = function() {
 		var retrievedString = removeWordsToIgnoreBox_.value.toLowerCase();
+
+		errorHandler_.clearErrorDisplay();
+		if(!retrievedString.match(ALPHA_NUM_WHITESPACE_REGEX_)){
+			errorHandler_.displayError("Sorry, this application only receives alpha-numeric inputs.");
+			return;
+		}
+
 		var stringArray = generateStringArray(retrievedString);
-		processing.removeWordsToIgnore(stringArray);
+		processing_.removeWordsToIgnore(stringArray);
 	}
-	
 	
 	function generateTitleArray(retrievedString) {
 		var stringArray = retrievedString.split("\n");
@@ -66,7 +95,7 @@ var InputToCommand = function() {
 	}
 	
 	function generateStringArray(retrievedString) {
-		var stringArray = retrievedString.split(";");
+		var stringArray = retrievedString.split(" ");
 		var i;
 		for (i=0; i<stringArray.length; i++) {
 			stringArray[i].trim();

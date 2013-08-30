@@ -6,7 +6,6 @@ void Output(ListOfTitles listOfTitles)
 var Output = function(){
 	var TITLE_OUTPUT_P_ID_ = "output-title-p";
 	var WORDS_TO_IGNORE_OUTPUT_P_ID_ = "output-words-to-ignore-p";
-	var ERROR_OUTPUT_P_ID_ = "output-error-p";
 
 	var self_ = this;
 
@@ -46,8 +45,5 @@ var Output = function(){
 				document.getElementById(WORDS_TO_IGNORE_OUTPUT_P_ID_).innerHTML + wordsToIgnoreArr[i];
 		}
 
-	}
-	this.displayErrorOutput = function(errorStr){
-		document.getElementById(ERROR_OUTPUT_P_ID_).innerHTML = errorStr;
 	}
 }

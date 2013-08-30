@@ -8,15 +8,19 @@ textarea{
 
 #titles-list-textarea{
 	width: 600;
-	height: 300;
+	height: 100;
 }
 
 #words-to-ignore-textarea{
 	width: 600;
-	height: 100;
+	height: 50;
 }
 
 #credit-div{
 	position: absolute;
 	right: 0px;
+}
+
+#output-error-p{
+	color: red;
 }

@@ -3,6 +3,7 @@
 		<link rel="stylesheet" href="kwic.css">
 		<script src="Title.js"></script>
 		<script src="ListOfTitles.js"></script>
+		<script src="ErrorHandler.js"></script>
 		<script src="InputToCommand.js"></script>
 		<script src="Processing.js"></script>
 		<script src="Output.js"></script>
@@ -11,26 +12,25 @@
 	</head>
 	<body>
 		<div id="output-div">
-			<p>Title list:</p><br/>
+			<p>Title list:</p>
 			<p id="output-title-p"></p>
-			<p>Words to ignore list:</p><br/>
+			<p>Words to ignore list:</p>
 			<p id="output-words-to-ignore-p"></p>
-			<p>Error:</p><br/>
+			<p>Error:</p>
 			<p id="output-error-p"></p>
 		</div>
 		<div id="input-title-div">
-			<p>Add/Remove title list:<p><br/>
+			<p>Add/Remove title list (Type enter before typing the next title)<p>
 			<textarea id="titles-list-textarea"></textarea><br/>
 			<button type="button" onclick="io.addTitles()">Add</button>
 			<button type="button" onclick="io.removeTitles()">Remove</button>
-			<br/>
 		</div>
 		<div id="input-words-to-ignore-div">
-			<p>Add/Remove words to ignore:</p><br/>
+			<p>Add/Remove words to ignore (Type space before entering the next word)</p>
+			<p>Example: and or is</p>
 			<textarea id="words-to-ignore-textarea"></textarea><br/>
 			<button type="button" onclick="io.addWordsToIgnore()">Add</button>
 			<button type="button" onclick="io.removeWordsToIgnore()">Remove</button>
-			<br/>
 		</div>
 		<div id="credit-div">
 			<h3>Credits:</h3>
