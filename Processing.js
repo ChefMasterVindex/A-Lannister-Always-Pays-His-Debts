@@ -25,18 +25,18 @@ var Processing = function(){
 
 		var key;
 
-		for(key in listOfWordsToIgnore_){
-			var i;
 
-			for(i = 0; i < titleObjArr.length; i++){
-				var titleObj = titleObjArr[i];
+		var i;
 
-				if(titleObj.getFirstWord() == listOfWordsToIgnore_[key]){
-					listOfIgnoredTitle_.addTitles([titleObj]);
-					titleObjArr.splice(i, 1);
-					i--;
-				}
+		for(i = 0; i < titleObjArr.length; i++){
+			var titleObj = titleObjArr[i];
+
+			if(listOfWordsToIgnore_[titleObj.getFirstWord()]!=null){
+				listOfIgnoredTitle_.addTitles([titleObj]);
+				titleObjArr.splice(i, 1);
+				i--;
 			}
+	
 		}
 
 		listOfIncludedTitle_.addTitles(titleObjArr);
